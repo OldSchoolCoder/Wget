@@ -5,9 +5,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
 
-public class Wget {
-    public static void main(String[] args) {
+public class Wget implements Callable {
+
+    @Override
+    public Object call() throws Exception {
         Scanner scanner = new Scanner(System.in);
         String url = scanner.next();
         int speed = scanner.nextInt();
@@ -22,5 +25,6 @@ public class Wget {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
